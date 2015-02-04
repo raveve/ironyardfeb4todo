@@ -7,7 +7,7 @@ h2 {
 .fa-times-circle {
   margin-left: 50px; }
 
-.hover-hide {
+.form-group, .hover-hide {
   display: none; }
 
 .show {

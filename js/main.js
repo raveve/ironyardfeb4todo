@@ -42,31 +42,25 @@ var tdList = {
 
       tdList.createItems(newItem);
     });
-
-    $("article _id").hover(
-      function() {
-        $(this).append("<span class='hover-hide'");
-      },
-      function() {
-        $(this).find( "span:last" ).remove();
-      });
+// Hover for showing delete button. In case I decide to add this back in later
+    // $("article _id").hover(
+    //   function() {
+    //     $(this).addClass("<span class='hover-hide'");
+    //   },
+    //   function() {
+    //     $(this).find( "span:last" ).remove();
+    //   });
 
       $('section').on('click', '.deleteItem', function (event) {
         event.preventDefault();
-        var itemId = $(this).closest('article').data('itemId');
+        var itemId = $(this).closest('article').data('itemid');
         console.log(itemId);
 
         tdList.deleteItems(itemId);
       });
 },
       config: {
-        url: 'http://tiy-fee-rest.herokuapp.com/collections/raveve',
-      },
-
-      render: function () {
-        var template = _.template(data, tmpl);
-
-        $el.append(template);
+        url: 'http://rh-tiny-server.herokuapp.com/collections/raveve',
       },
 
   renderItems: function () {
@@ -75,13 +69,13 @@ var tdList = {
       type: 'GET',
       success: function (items) {
         console.log(items);
-        var template = _.template($('#todoTmpl').append('article'));
+        var template = _.template($('#todoTmpl').html());
         var markup = "";
         items.forEach(function (item, idx, arr){
           markup += template(item);
         });
         console.log('markup is...', markup);
-        $('article').append(markup);
+        $('article').html(markup);
       },
     });
   },
@@ -117,7 +111,8 @@ var tdList = {
     });
   },
 
-  updateItems: function () {
+  updateItems: function (id, item) {
+
     $.ajax({
       url: tdList.config.url + '/' + id,
       data: item,

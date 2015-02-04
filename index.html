@@ -11,10 +11,10 @@
 
   <article data-itemid="<%= _id %>">
   <h2><%= item %></h2>
-  <a href="" class="deleteItem"><i class="fa fa-times-circle"></i></a>
+  <a href="" class="deleteItem"><h2><i class="fa fa-times-circle"></h2></i></a>
   <form class="editItem" action="">
   <div class="form-group">
-  <input type="text" class="form-control" name="editItem" value="<%= item %>">
+  <input type="text" class="form-control input-lg" name="editItem" value="<%= item %>">
   </div>
   </form>
   </article>
@@ -32,15 +32,12 @@
 
         <form id="createItem" action="">
           <div class="form-create">
-            <input type="text" class="form-field" name="createItem" value="Type to do here">
+            <input type="text" class="form-field input-lg" name="createItem" value="Type to do here">
           </div>
         </form>
 
         <article>
-          <h2>Item 1 </h2>
-          <a href="">
-            <h2><i class="fa fa-times-circle hover-hide"></i></h2>
-          </a>
+
         </article>
 
       </section>
