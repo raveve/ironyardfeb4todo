@@ -1,3 +1,6 @@
+body {
+  background: url('../images/lined_paper_@2X.png'); }
+
 h1 {
   text-align: center; }
 
@@ -12,3 +15,6 @@ h2 {
 
 .show {
   display: block; }
+
+.dbl-click:hover {
+  cursor: pointer; }

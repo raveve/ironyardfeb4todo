@@ -19,9 +19,15 @@ var tdList = {
 
   initEvents: function () {
 
-    $('section').on('dblclick', '.editItem', function (event) {
+    // var divdbl = $( ".editItem" );
+    // divdbl.dblclick(function() {
+    //   divdbl.toggleClass( "show" );
+    // });
+
+    $(".dbl-click").dblclick(function () {
         event.preventDefault();
-        $(this).closest('article').find('.editItem').toggleClass('show');
+        console.log("Your double click worked!!!!!");
+          // $(this).closest('article').find('.editItem').toggleClass('show');
       });
 
     $('section').on('submit', '.editItem', function (event) {
