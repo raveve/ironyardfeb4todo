@@ -1,0 +1,14 @@
+h1 {
+  text-align: center; }
+
+h2 {
+  display: inline-block; }
+
+.fa-times-circle {
+  margin-left: 50px; }
+
+.hover-hide {
+  display: none; }
+
+.show {
+  display: block; }
