@@ -98,6 +98,9 @@ var tdList = {
       success: function (data) {
         console.log(data);
         tdList.renderItems();
+
+        // Clears the input text areas
+        $('.form-create input').val('');
       },
       error: function (err) {
         console.log(err);
