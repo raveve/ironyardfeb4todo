@@ -5,13 +5,18 @@ body {
   margin-top: 25px;
   margin-bottom: 25px;
   background: url('../images/lined_paper_@2X.png');
-  border-radius: 5%; }
+  -webkit-box-shadow: 3px 3px 5px 2px #222;
+  -moz-box-shadow: 3px 3px 5px 2px #222;
+  box-shadow: 3px 3px 5px 2px #222; }
 
 h1 {
   text-align: center; }
 
 h2 {
   display: inline-block; }
+
+form {
+  margin-bottom: 15px; }
 
 .fa-times-circle {
   margin-left: 50px; }

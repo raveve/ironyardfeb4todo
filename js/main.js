@@ -27,13 +27,14 @@ var tdList = {
     // Event delegation for double click to edit item
     $("article").on("dblclick", "h2", function (event) {
         event.preventDefault();
-        console.log("Your double click worked!!!!!");
-         $(this).closest('article').find('.editItem').toggleClass('show');
+        console.log("Double click worked");
+         $(this).closest('article').find('form').toggleClass('form-group');
       });
+
 
     $('section').on('submit', '.editItem', function (event) {
         event.preventDefault();
-        var itemId = $(this).closest('article').data('itemId');
+        var itemId = $(this).closest('article').data('itemid');
         var editedItem = {
         item: $(this).find('input[name="editItem"]').val()
         };
@@ -49,6 +50,7 @@ var tdList = {
 
       tdList.createItems(newItem);
     });
+
 // Hover for showing delete button. In case I decide to add this back in later
     // $("article _id").hover(
     //   function() {
@@ -126,7 +128,7 @@ var tdList = {
       type: 'PUT',
       success: function (data) {
         console.log(data);
-        items.renderItems();
+        tdList.renderItems();
       },
       error: function (err) {
         console.log(err);
