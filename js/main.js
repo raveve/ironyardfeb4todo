@@ -2,6 +2,7 @@
 
 
 $(document).ready(function () {
+
   tdList.init();
 
 });
@@ -9,32 +10,32 @@ $(document).ready(function () {
 var tdList = {
 
   init: function () {
+    console.log("init works");
     tdList.initStyling();
     tdList.initEvents();
   },
 
   initStyling: function () {
+    console.log("initStyling works")
     tdList.renderItems();
   },
 
   initEvents: function () {
+    console.log("initEvents works")
 
-    // var divdbl = $( ".editItem" );
-    // divdbl.dblclick(function() {
-    //   divdbl.toggleClass( "show" );
-    // });
 
-    $(".dbl-click").dblclick(function () {
+    // Event delegation for double click to edit item
+    $("article").on("dblclick", "h2", function (event) {
         event.preventDefault();
         console.log("Your double click worked!!!!!");
-          // $(this).closest('article').find('.editItem').toggleClass('show');
+         $(this).closest('article').find('.editItem').toggleClass('show');
       });
 
     $('section').on('submit', '.editItem', function (event) {
         event.preventDefault();
         var itemId = $(this).closest('article').data('itemId');
         var editedItem = {
-        item: $(this).find('input[name="createItem"]').val()
+        item: $(this).find('input[name="editItem"]').val()
         };
 
         tdList.updateItems(itemId, editedItem);
