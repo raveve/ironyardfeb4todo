@@ -10,6 +10,7 @@ $(document).ready(function () {
 var tdList = {
 
   init: function () {
+    console.log("init works");
     tdList.initStyling();
     tdList.initEvents();
   },
@@ -50,12 +51,16 @@ var tdList = {
       tdList.createItems(newItem);
     });
 
-//Hover for showing delete button. In case I decide to add this back in later
-    $("article _id").on('hover', function (){
-      $(this).show('.fa-times-circle');
-    });
+// Hover for showing delete button. In case I decide to add this back in later
+    // $("article _id").hover(
+    //   function() {
+    //     $(this).addClass("<span class='hover-hide'");
+    //   },
+    //   function() {
+    //     $(this).find( "span:last" ).remove();
+    //   });
 
-      $('section').on('click', '.deleteItem', function (event) {
+      $('section').on('click', '.delete-item', function (event) {
         event.preventDefault();
         var itemId = $(this).closest('article').data('itemid');
         console.log(itemId);
@@ -127,6 +132,7 @@ var tdList = {
       success: function (data) {
         console.log(data);
         tdList.renderItems();
+
       },
       error: function (err) {
         console.log(err);
