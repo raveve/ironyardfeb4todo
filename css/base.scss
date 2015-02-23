@@ -45,6 +45,10 @@ article {
   cursor: pointer;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .form-group, .hover-hide {
   display: none;
 }

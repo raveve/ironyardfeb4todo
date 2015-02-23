@@ -35,6 +35,9 @@ article {
   padding-right: 25px;
   cursor: pointer; }
 
+.completed {
+  text-decoration: line-through; }
+
 .form-group, .hover-hide {
   display: none; }
 

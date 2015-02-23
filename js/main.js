@@ -23,9 +23,15 @@ var tdList = {
   initEvents: function () {
     console.log("initEvents works")
 
+    // Event delegation for click of check-circle icon to "complete" an item (class completed puts a line through the item)
+    $('section').on('click', '.fa-check-circle', function (event) {
+      console.log ('check-circle click works');
+      $(this).parent().siblings('h2').toggleClass('completed');
+    });
+
 
     // Event delegation for double click to edit item
-    $("article").on("dblclick", "h2", function (event) {
+    $('article').on('dblclick', '.dbl-click', function (event) {
         event.preventDefault();
         $(this).closest('article').find('form').toggleClass('form-group');
       });
