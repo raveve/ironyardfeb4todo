@@ -1,5 +1,6 @@
 body {
   background: url('../images/px_by_Gre3g_@2X.png');
+  font-family: 'Homemade Apple', cursive;
 }
 
 .back-img {
@@ -9,6 +10,10 @@ body {
   -webkit-box-shadow: 3px 3px 5px 2px #222;
   -moz-box-shadow:    3px 3px 5px 2px #222;
   box-shadow:         3px 3px 5px 2px #222;
+}
+
+.input-lg {
+  line-height: 2.5;
 }
 
 h1 {
@@ -23,16 +28,21 @@ form {
   margin-bottom: 15px;
 }
 
+article {
+  padding-bottom: 10px;
+}
+
 .fa-times-circle {
   margin-left: 50px;
+  color: #6E6373;
+}
+
+.fa-times-circle:hover {
+  color: #201326;
 }
 
 .form-group, .hover-hide {
   display: none;
-}
-
-.show {
-  display: block;
 }
 
 .dbl-click:hover {
