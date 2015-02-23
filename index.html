@@ -11,7 +11,9 @@
   <script type="html/template" id="todoTmpl">
   <article data-itemid="<%= _id %>">
   <h2 class="dbl-click"><%= item %></h2>
+  <div class="delete">
   <a href="" class="delete-item"><h2><i class="fa fa-times-circle"></h2></i></a>
+  </div>
   <form class="editItem form-group" action="">
   <input type="text" class="form-control input-lg" name="editItem" value="<%= item %>">
   </form>
