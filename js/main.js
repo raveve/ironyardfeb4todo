@@ -21,6 +21,8 @@ var tdList = {
     $('section').on('click', '.fa-check-circle', function (event) {
       console.log ('check-circle click works');
       $(this).parent().siblings('h2').toggleClass('completed');
+
+    //  tdList.updateItems(); need an if / else statement for PUT of complete
     });
     /////////////////////////////////////////////////////
    /////////////////////////////////////////////////////
@@ -30,6 +32,7 @@ var tdList = {
     /////////////////////////////////////////////////////
     $('article').on('dblclick', '.dbl-click', function (event) {
         event.preventDefault();
+        $(this).hide();
         $(this).closest('article').find('form').toggleClass('form-group');
     });
     /////////////////////////////////////////////////////
@@ -42,9 +45,10 @@ var tdList = {
         event.preventDefault();
         var itemId = $(this).closest('article').data('itemid');
         var editedItem = {
-        item: $(this).find('input[name="editItem"]').val()
+        item: $(this).find('input[name="editItem"]').val(),
+        complete: false
         }
-        if(editedItem.itme === '') {
+        if (editedItem.item === '') {
           // Does nothing, this keeps from creating an empty item upon edit
        }
        else {

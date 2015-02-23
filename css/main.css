@@ -38,6 +38,9 @@ article {
 .completed {
   text-decoration: line-through; }
 
+.editItem {
+  display: inline-block; }
+
 .form-group, .hover-hide {
   display: none; }
 
