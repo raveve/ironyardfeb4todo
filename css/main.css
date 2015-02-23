@@ -25,12 +25,15 @@ form {
 article {
   padding-bottom: 10px; }
 
-.fa-times-circle {
-  margin-left: 50px;
+.fa-times-circle, .fa-check-circle {
   color: #6E6373; }
 
-.fa-times-circle:hover {
+.fa-times-circle:hover, .fa-check-circle:hover {
   color: #201326; }
+
+.fa-check-circle {
+  padding-right: 25px;
+  cursor: pointer; }
 
 .form-group, .hover-hide {
   display: none; }

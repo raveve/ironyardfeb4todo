@@ -27,8 +27,7 @@ var tdList = {
     // Event delegation for double click to edit item
     $("article").on("dblclick", "h2", function (event) {
         event.preventDefault();
-        console.log("Double click worked");
-         $(this).closest('article').find('form').toggleClass('form-group');
+        $(this).closest('article').find('form').toggleClass('form-group');
       });
 
 
@@ -42,23 +41,23 @@ var tdList = {
         tdList.updateItems(itemId, editedItem);
       });
 
-    $('#createItem').on('submit', function (event) {
-      event.preventDefault();
-      var newItem = {
-        item: $(this).find('input[name="createItem"]').val()
-      };
+      $('#createItem').on('submit', function (event) {
+        event.preventDefault();
+        var newItem = {
+          item: $(this).find('input[name="createItem"]').val()
+        };
 
-      tdList.createItems(newItem);
-    });
+        tdList.createItems(newItem);
+      });
 
-// Hover for showing delete button. In case I decide to add this back in later
-    // $("article _id").hover(
-    //   function() {
-    //     $(this).addClass("<span class='hover-hide'");
-    //   },
-    //   function() {
-    //     $(this).find( "span:last" ).remove();
-    //   });
+    //Hover for showing delete button. In case I decide to add this back in later
+          // $('section').on('mouseover', 'article', function(event) {
+          //   //  console.log(event.target);
+          //   $(this).find('a').toggleClass('delete-item');
+          // })
+          // .on('mouseout', 'article', function() {
+          //   $(this).find('a').toggleClass('delete-item');
+          // });
 
       $('section').on('click', '.delete-item', function (event) {
         event.preventDefault();
