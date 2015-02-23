@@ -1,42 +1,43 @@
-//  http://tiy-fee-rest.herokuapp.com/collections/raveve
-
-
-$(document).ready(function () {
-
-  tdList.init();
-
-});
-
 var tdList = {
 
+  config: {
+    url: 'http://rh-tiny-server.herokuapp.com/collections/raveve',
+  },
+
   init: function () {
-    console.log("init works");
     tdList.initStyling();
     tdList.initEvents();
   },
 
   initStyling: function () {
-    console.log("initStyling works")
     tdList.renderItems();
   },
 
   initEvents: function () {
-    console.log("initEvents works")
 
-    // Event delegation for click of check-circle icon to "complete" an item (class completed puts a line through the item)
+      /////////////////////////////////////////////////////
+     ///// Event delegation of check-circle icon click to complete item
+    /////////////////////////////////////////////////////
     $('section').on('click', '.fa-check-circle', function (event) {
       console.log ('check-circle click works');
       $(this).parent().siblings('h2').toggleClass('completed');
     });
+    /////////////////////////////////////////////////////
+   /////////////////////////////////////////////////////
 
-
-    // Event delegation for double click to edit item
+      /////////////////////////////////////////////////////
+     ///// Event delegation of double click to edit item /
+    /////////////////////////////////////////////////////
     $('article').on('dblclick', '.dbl-click', function (event) {
         event.preventDefault();
         $(this).closest('article').find('form').toggleClass('form-group');
-      });
+    });
+    /////////////////////////////////////////////////////
+   /////////////////////////////////////////////////////
 
-
+      /////////////////////////////////////////////////////
+     /////   Enter submits update for editing item    ////
+    /////////////////////////////////////////////////////
     $('section').on('submit', '.editItem', function (event) {
         event.preventDefault();
         var itemId = $(this).closest('article').data('itemid');
@@ -46,7 +47,12 @@ var tdList = {
 
         tdList.updateItems(itemId, editedItem);
       });
+      /////////////////////////////////////////////////////
+     /////////////////////////////////////////////////////
 
+        /////////////////////////////////////////////////////
+       /////    Enter submits text for creating item    ////
+      /////////////////////////////////////////////////////
       $('#createItem').on('submit', function (event) {
         event.preventDefault();
         var newItem = {
@@ -55,16 +61,12 @@ var tdList = {
 
         tdList.createItems(newItem);
       });
+      /////////////////////////////////////////////////////
+     /////////////////////////////////////////////////////
 
-    //Hover for showing delete button. In case I decide to add this back in later
-          // $('section').on('mouseover', 'article', function(event) {
-          //   //  console.log(event.target);
-          //   $(this).find('a').toggleClass('delete-item');
-          // })
-          // .on('mouseout', 'article', function() {
-          //   $(this).find('a').toggleClass('delete-item');
-          // });
-
+        /////////////////////////////////////////////////////
+       ///// Event delegation of x icon click to delete item
+      /////////////////////////////////////////////////////
       $('section').on('click', '.delete-item', function (event) {
         event.preventDefault();
         var itemId = $(this).closest('article').data('itemid');
@@ -72,11 +74,13 @@ var tdList = {
 
         tdList.deleteItems(itemId);
       });
-},
-      config: {
-        url: 'http://rh-tiny-server.herokuapp.com/collections/raveve',
-      },
+      /////////////////////////////////////////////////////
+     /////////////////////////////////////////////////////
+    },
 
+    /////////////////////////////////////////////////////
+   /////    Function that renders item on DOM     //////
+  /////////////////////////////////////////////////////
   renderItems: function () {
     $.ajax({
       url: tdList.config.url,
@@ -93,7 +97,12 @@ var tdList = {
       },
     });
   },
+  /////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////
 
+    /////////////////////////////////////////////////////
+   /////   Function that creates item on server   //////
+  /////////////////////////////////////////////////////
   createItems: function (item) {
 
     $.ajax({
@@ -112,7 +121,12 @@ var tdList = {
       }
     });
   },
+  /////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////
 
+    /////////////////////////////////////////////////////
+   /////   Function that deletes item on server   //////
+  /////////////////////////////////////////////////////
   deleteItems: function (id) {
 
     $.ajax({
@@ -127,7 +141,12 @@ var tdList = {
       }
     });
   },
+  /////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////
 
+    /////////////////////////////////////////////////////
+   /////   Function that updates item on server   //////
+  /////////////////////////////////////////////////////
   updateItems: function (id, item) {
 
     $.ajax({
@@ -144,5 +163,18 @@ var tdList = {
       }
     });
   },
+ /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
 
 };
+
+  /////////////////////////////////////////////////////
+ /////          Initialize on DOM load          //////
+/////////////////////////////////////////////////////
+$(document).ready(function () {
+
+  tdList.init();
+
+});
+ /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
