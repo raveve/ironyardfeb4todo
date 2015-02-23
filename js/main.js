@@ -56,10 +56,15 @@ var tdList = {
       $('#createItem').on('submit', function (event) {
         event.preventDefault();
         var newItem = {
-          item: $(this).find('input[name="createItem"]').val()
-        };
-
-        tdList.createItems(newItem);
+          item: $(this).find('input[name="createItem"]').val(),
+          complete: false
+        }
+        if(newItem.item === "") {
+         // Does nothing, this keeps from creating an empty item
+       }
+       else {
+         tdList.createItems(newItem);
+       }
       });
       /////////////////////////////////////////////////////
      /////////////////////////////////////////////////////
