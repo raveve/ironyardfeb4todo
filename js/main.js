@@ -43,9 +43,13 @@ var tdList = {
         var itemId = $(this).closest('article').data('itemid');
         var editedItem = {
         item: $(this).find('input[name="editItem"]').val()
-        };
-
-        tdList.updateItems(itemId, editedItem);
+        }
+        if(editedItem.itme === '') {
+          // Does nothing, this keeps from creating an empty item upon edit
+       }
+       else {
+         tdList.updateItems(itemId, editedItem);
+       }
       });
       /////////////////////////////////////////////////////
      /////////////////////////////////////////////////////
@@ -59,7 +63,7 @@ var tdList = {
           item: $(this).find('input[name="createItem"]').val(),
           complete: false
         }
-        if(newItem.item === "") {
+        if(newItem.item === '') {
          // Does nothing, this keeps from creating an empty item
        }
        else {
